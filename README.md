@@ -1,2 +1,9 @@
 # Scan2scanner
-Help to scan documents from scanner directly
+📦 تثبيت الحزم المطلوبة : 
+pip install pyinsane2 pillow
+
+حتي يتم scan documents 
+
+من scanner directly
+📦 تثبيت الحزم المطلوبة : 
+pip install pyinsane2 pillow
