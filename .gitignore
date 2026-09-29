@@ -1,0 +1,7 @@
+__pycache__/
+.venv/
+scans/
+build/
+dist/
+release/
+package-root/

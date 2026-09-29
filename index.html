@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f6f4">
+  <title>Scan2scanner | ماسح المستندات</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Scan2scanner - الرئيسية">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>Scan<span class="brand-accent">2</span>scanner</span>
+    </a>
+    <span class="connection" id="connection-status"><span class="connection-dot" aria-hidden="true"></span>جارٍ فحص الاتصال</span>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">مسح ضوئي مباشر</p>
+      <h1 id="page-title">حوّل الورق إلى ملفات رقمية.</h1>
+      <p class="intro-copy">ابدأ المسح من الجهاز المتصل، أو اعرض صورة موجودة لديك.</p>
+    </section>
+
+    <section class="system-panel" aria-labelledby="system-title">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">معلومات الجهاز</p>
+          <h2 id="system-title">النظام والطابعات</h2>
+        </div>
+        <span class="device-tag" id="system-info-state">جارٍ الفحص</span>
+      </div>
+      <dl class="system-facts">
+        <div><dt>نظام التشغيل</dt><dd id="operating-system">جارٍ الفحص</dd></div>
+        <div><dt>معمارية النظام</dt><dd id="system-architecture">جارٍ الفحص</dd></div>
+        <div><dt>معمارية Python</dt><dd id="python-architecture">جارٍ الفحص</dd></div>
+        <div><dt>واجهة الماسح</dt><dd id="scanner-interface">جارٍ الفحص</dd></div>
+      </dl>
+      <div class="printer-list-heading"><h3>الطابعات المكتشفة</h3></div>
+      <ul class="printer-list" id="printer-list" aria-live="polite">
+        <li>جارٍ البحث عن طابعات</li>
+      </ul>
+    </section>
+
+    <section class="workspace" aria-label="أدوات المسح والمعاينة">
+      <div class="scan-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">الجهاز</p>
+            <h2>الماسح الضوئي</h2>
+          </div>
+          <span class="device-tag" id="device-status">جارٍ الفحص</span>
+        </div>
+
+        <div class="device-row">
+          <span class="device-icon" aria-hidden="true">▤</span>
+          <div>
+            <strong id="device-name">جارٍ البحث عن ماسح</strong>
+            <p id="device-description">يتم اكتشاف أجهزة USB عبر SANE</p>
+          </div>
+        </div>
+
+        <form id="scan-form" action="/scan/" method="post">
+          <button class="scan-button" id="scan-button" type="submit" disabled>
+            <span class="scan-button-icon" aria-hidden="true">◉</span>
+            <span>ابدأ المسح</span>
+            <span class="button-arrow" aria-hidden="true">←</span>
+          </button>
+        </form>
+        <p class="scan-note">يُحفظ المسح بصيغة PNG بدقة تصل إلى 600 DPI حسب دعم الماسح.</p>
+        <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+
+        <div class="divider"><span>أو</span></div>
+
+        <label class="upload-control" for="image-input">
+          <span class="upload-symbol" aria-hidden="true">＋</span>
+          <span><strong>اختر ملفًا للمعاينة</strong><small>PDF أو PNG أو JPG أو WebP</small></span>
+          <span class="upload-arrow" aria-hidden="true">←</span>
+        </label>
+        <input id="image-input" class="visually-hidden" type="file" accept="application/pdf,image/png,image/jpeg,image/webp">
+      </div>
+
+      <section class="preview-panel" aria-labelledby="preview-title">
+        <div class="preview-heading">
+          <div>
+            <p class="eyebrow">النتيجة</p>
+            <h2 id="preview-title">معاينة المستند</h2>
+          </div>
+          <span class="page-count" id="page-count">لا توجد صفحة</span>
+        </div>
+        <div class="preview-stage" id="preview-stage">
+          <div class="empty-preview" id="empty-preview">
+            <span class="document-icon" aria-hidden="true">▤</span>
+            <p>ستظهر هنا معاينة المستند</p>
+            <small>ابدأ المسح أو اختر صورة من جهازك</small>
+          </div>
+          <img class="preview-image" id="preview-image" alt="معاينة كاملة للمستند" hidden>
+          <iframe class="preview-pdf" id="preview-pdf" title="معاينة ملف PDF" hidden></iframe>
+        </div>
+        <div class="preview-footer">
+          <span id="file-name">بانتظار مستند</span>
+          <div class="preview-actions">
+            <button class="print-button" id="print-button" type="button" disabled title="اختر ملفًا أو امسح مستندًا أولًا">اطبع الآن</button>
+            <a class="download-link" id="download-link" href="#" download hidden>تنزيل الملف</a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="page-footer"><span>Scan2scanner</span><span>مسح بسيط، ملفات أوضح.</span></footer>
+</body>
+</html>

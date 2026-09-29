@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Scan2scanner
+Comment=Local document scanning
+Exec=scan2scanner
+Terminal=true
+Categories=Graphics;Scanning;
